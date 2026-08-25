@@ -26,3 +26,10 @@ else:
     # Show the actual app
     st.title("AI Weather Dashboard")
     # ... dashboard content using st.session_state["token"] 
+# --- Sidebar ---
+with st.sidebar:
+    st.write(f"Logged in as **{st.session_state['username']}**")
+    if st.button("Logout"):
+        st.session_state["token"] = None
+        st.session_state["username"] = None
+        st.rerun()
