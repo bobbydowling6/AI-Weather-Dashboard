@@ -1,4 +1,4 @@
-import secrets  # <-- Added missing import
+import secrets  
 from fastapi import FastAPI, HTTPException, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
@@ -15,9 +15,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Assuming your secrets.toml has a dictionary of users, e.g.:
-# [database.users]
-# admin = "password123"
 try:
     users_db = dict(st.secrets["database"]["users"])
 except Exception:
